@@ -12,15 +12,16 @@ jobs:
      steps:
       - uses: actions/checkout@v3
       - name: npm
-        run: npm install --save-dev semantic-release
-      #- run: npm install semantic-release @semantic-release/git @semantic-release/github -D
+#        run: npm install --save-dev semantic-release
+        run: npm install semantic-release @semantic-release/git @semantic-release/github -D
       - uses: hashicorp/setup-terraform@v2
         with:
          terraform_version: 1.1.9
       - name: Init
-        run: |
-            eval 'ssh-agent -s'
-            ssh-add - <<< '${{ secrets.SSH_GITHUB_ACTIONS}}'
+#        run: |
+#            eval 'ssh-agent -s'
+#            ssh-add - <<< '${{ secrets.SSH_GITHUB_ACTIONS}}'
+        run: 
             terraform init
       - name: validate
         run: terraform validate
